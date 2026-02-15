@@ -1,4 +1,4 @@
-version: "3.8"
+
 
 x-airflow-common: &airflow-common
   image: apache/airflow:2.7.3
@@ -42,7 +42,7 @@ services:
     command: >
       bash -c "
       airflow db init &&
-      airflow users create --username admin --password admin --firstname Admin --lastname User --role Admin --email admin@example.com
+      airflow users create --username ${AIRFLOW_ADMIN_USER} --password ${AIRFLOW_ADMIN_PASSWORD} --firstname ${AIRFLOW_ADMIN_FIRSTNAME} --lastname ${AIRFLOW_ADMIN_LASTNAME} --role Admin --email ${AIRFLOW_ADMIN_EMAIL}
       "
     restart: "no"
   
